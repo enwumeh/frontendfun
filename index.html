@@ -5,32 +5,84 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <title>Frontend Mentor | E-commerce product page</title>
+  <script src="./script.js" defer></script>
+
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    #large-image {
+      width: 315px;
+      height: 315px;
+    }
+    /* .attribution {
+       font-size: 11px; text-align: center; 
+      }
+
+    .attribution a { 
+      color: hsl(228, 45%, 44%);
+     } */
+
+     .lil-image {
+       width: 10vh;
+       height: 10vh;
+       padding: 2.5px;
+       margin: 2.5px;
+     }
+
+     .left {
+      display: inline-block; 
+     }
+
+     .right {
+        display: inline-block;
+      }
+
+     .header-container {
+       border-bottom: solid rgb(183, 59, 214) 5vh;
+     }
+
+     #nav {
+       position: relative;
+       float: right;
+       left: -40%;
+       padding: 2.5px;
+
+     }
+
+     .a {
+      position: relative;
+       padding: 20px;
+       top: -50px;
+     }
+
   </style>
 </head>
+
 <body>
-  <header>
+    <header>
+    <div class="header-container">
+    <div class="sneakers-title">
     <h1>Sneakers</h1>
-    <nav>
-      <a>Collections</a>
-      <a>Men</a>
-      <a>Women</a>
-      <a>About</a>
-      <a>Contact
-      </nav>
-    </div>
+   </div>
+
+    <nav id="nav">
+      <a class="a">Collections</a>
+      <a class="a">Men</a>
+      <a class="a">Women</a>
+      <a class="a">About</a>
+      <a class="a">Contact
+    </nav>
+  </div>
   </header>
 <!-- main should contain main content for the webpage -->
     <main>
       <div>
-        <img id='' src="./images/image-product-1.jpg" alt="YURRR" width=60px height=60px></img>
-        <img src="./images/image-product-3.jpg" alt="YURRR" width=60px height=60px></img>
-        <img src="./images/image-product-4.jpg" alt="YURRR" width=60px height=60px></img>
-        <img src="./images/image-product-2.jpg" alt="YURRR" width=60px height=60px></img>
-        <img src="./images/image-product-4.jpg" alt="YURRR" width=60px height=60px></img>
+        <img id='large-image' src="./images/image-product-1.jpg" alt="YURRR" width=60px height=60px></img>
+     </div>
+      <div>
+        <img id="thumbnail1" class="lil-image" src="./images/image-product-3.jpg" alt="image-one"></img>
+        <img id="thumbnail2" class="lil-image" src="./images/image-product-4.jpg" alt="image-two"></img>
+        <img id="thumbnail3" class="lil-image" src="./images/image-product-2.jpg" alt="image-three"></img>
+        <img id="thumbnail4" class="lil-image" src="./images/image-product-4.jpg" alt="image-four"></img>
       </div>
 
       <div>
@@ -39,11 +91,7 @@
         <p id="sneak-price">$125.00</p>
         <div>50% off</div>
         <button id="add-button">Add to Cart</button>
-
       </div>
-    
-
-      
     </main>
 
   Sneaker Company
