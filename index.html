@@ -65,6 +65,14 @@
 
      }
 
+     img.hover-shadow {
+  transition: 0.3s;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
      .a {
       position: relative;
        padding: 20px;
@@ -164,7 +172,7 @@
   border-radius: 10%;
 }
 
-.lightbox-target {
+/* .lightbox-target {
   position: fixed;
   top: -100%;
   width: 100%;
@@ -177,7 +185,67 @@
   transition: opacity .5s ease-in-out;
   overflow: hidden;
   z-index:300;
+} */
+/* .mySlides {
+  display: none;
+} */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black
 }
+
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  width: 50%;
+  max-width: 1200px;
+}
+
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.lightbox-target:after {
+  content: "";
+  display: table;
+  clear: both
+}
+
+
+
+.close {
+  position: relative;
+  font-size: 10vh;
+  color: white;
+  float: right;
+  left: -20px;
+  top: -50px;
+}
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* a {
+  color: hotpink;
+} */
 
   </style>
 </head>
@@ -233,15 +301,24 @@
       <!-- main should contain main content for the webpage -->
          <main>
       <section>
-        <a href = "javascript:showLightBox()" onMouseOut="javascript:stopShowLightBox()" style="cursor: pointer;">Click to start
-          Lightbox gallery</a>
       <section class="lightbox-container">
       <div class="image-container">
-        <a class="vlightbox" href="./images/image-product-1.jpg" title="2" id="firstImage">
-        <img id='large-image' src="./images/image-product-1.jpg" alt="YURRR" width=60px height=60px></img>
-      </a>
+        <img id='large-image' src="./images/image-product-1.jpg" onclick="openModal()" class="hover-shadow" alt="YURRR" width=60px height=60px></img>
+      
      </div>
+
+     <div id="myModal" class="modal">
+      <span class="close cursor" onclick="closeModal()">XXX</span>
+      <div class="modal-content">
+    
+        <div class="mySlides">
+          <div class="numbertext">1 / 4</div>
+          <img src="./images/image-product-1.jpg" style="width:100%">
+        </div>
+        </div>
+        </div>
     </section>
+
       <div>
         <img id="thumbnail1" class="lil-image" src="./images/image-product-3.jpg" alt="image-one"></img>
         <img id="thumbnail2" class="lil-image" src="./images/image-product-4.jpg" alt="image-two"></img>

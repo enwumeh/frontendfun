@@ -68,3 +68,11 @@ function addProduct(target) {
         started = 0;
     }
   }
+
+  function closeModal() {
+    document.getElementById("myModal").style.display = "none";
+  }
+
+  function openModal() {
+    document.getElementById("myModal").style.display = "block";
+  }
