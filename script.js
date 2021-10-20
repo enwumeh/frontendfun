@@ -7,14 +7,23 @@ let TN4 = document.getElementById('thumbnail4');
 let plus = document.getElementById('plus');
 let minus = document.getElementById('minus');
 let counter = document.getElementById('counter');
+let lightBoxImg = document.getElementById('lightbox-img');
+let addToCart = document.getElementById('add-button');
+let notification = document.getElementById('badge');
+// let notification = document.querySelectorAll('badge::after');
+let notificationCount = 0;
 let count = 0;
 
 
 
 function showImage(imgPath) {
+  // let ggg = document.getElementById('lightbox-img');
   let bigImg = document.getElementById('large-image');
   bigImg.src = imgPath;
+  lightBoxImg.src = imgPath;
 }
+
+
 
 [TN1, TN2, TN3, TN4].forEach((thumbnail) => {
   thumbnail.addEventListener('click', (e) => {
@@ -73,6 +82,17 @@ function addProduct(target) {
     document.getElementById("myModal").style.display = "none";
   }
 
-  function openModal() {
-    document.getElementById("myModal").style.display = "block";
-  }
+function openModal() {
+  // ggg.src = 
+  document.getElementById("myModal").style.display = "block";
+  
+}
+addToCart.addEventListener('click', () => {
+  notificationCount++;
+  // document.getElementById('#badge:after').style.display = "none";
+  notification.style.background = "blue";
+  let num = notification.getAttribute('data-count');
+  num = notificationCount;
+  console.log(notification, "num:", num);
+  console.log("Updated:",notification.getAttribute('data-count'));
+})

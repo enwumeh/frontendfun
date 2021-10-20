@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <title>Frontend Mentor | E-commerce product page</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <script src="./script.js" defer></script>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
@@ -203,6 +204,39 @@
   background-color: black
 }
 
+*.icon-blue {
+  color: #0088cc;
+}
+
+*.icon-grey {
+  color: grey;
+}
+
+i {
+  width: 100px;
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+}
+
+#badge:after {
+  content: attr(data-count);
+  position: absolute;
+  background: #ff6600;
+  height: 2rem;
+  top: 1rem;
+  right: 1.5rem;
+  width: 2rem;
+  text-align: center;
+  line-height: 2rem;
+  font-size: 1rem;
+  border-radius: 50%;
+  color: white;
+  border: 1px solid #ff6600;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
 .modal-content {
   position: relative;
   background-color: #fefefe;
@@ -230,10 +264,10 @@
 
 .close {
   position: relative;
-  font-size: 10vh;
+  font-size: 5vh;
   color: white;
   float: right;
-  left: -20px;
+  left: -340px;
   top: -50px;
 }
 .close:hover,
@@ -255,14 +289,15 @@
     <div class="header-container">
     <div class="sneakers-title">
     <h1>Sneakers</h1>
+    <i data-count="0" class="fa fa-shopping-cart fa-5x fa-border icon-grey" id="badge"></i>
    </div>
 
    <main class="cd-main container margin-top-xxl">
     <div class="text-component text-center">
       <h1>Add to Cart Interaction</h1>
       <p class="flex flex-wrap flex-center flex-gap-xxs">
-        <a class="cd-article-link" href="https://codyhouse.co/gem/add-to-cart-interaction">📝 View Tutorial</a>
-        <a href="#0" class="cd-add-to-cart js-cd-add-to-cart" data-price="25.99">Add To Cart</a>
+        <!-- <a class="cd-article-link" href="https://codyhouse.co/gem/add-to-cart-interaction">📝 View Tutorial</a> -->
+        <!-- <a href="#0" class="cd-add-to-cart js-cd-add-to-cart" data-price="25.99">Add To Cart</a> -->
       </p>
     </div>
   </main>
@@ -273,11 +308,39 @@
 				<span class="cd-cart__undo">Item removed. <a href="#0">Undo</a></span>
 			</header>
 			
-			<div class="cd-cart__body">
-				<ul>
-					<!-- products added to the cart will be inserted here using JavaScript -->
-				</ul>
-			</div>
+			<div class="cd-cart cd-cart--empty js-cd-cart">
+        <a href="#0" class="cd-cart__trigger text-replace">
+          Cart
+          <ul class="cd-cart__count"> <!-- cart items count -->
+            <li>0</li>
+            <li>0</li>
+          </ul> <!-- .cd-cart__count -->
+        </a>
+      
+        <div class="cd-cart__content">
+          <div class="cd-cart__layout">
+            <header class="cd-cart__header">
+              <h2>Cart</h2>
+              <span class="cd-cart__undo">Item removed. <a href="#0">Undo</a></span>
+            </header>
+            
+            <div class="cd-cart__body">
+              <ul>
+                <!-- products added to the cart will be inserted here using JavaScript -->
+              </ul>
+            </div>
+      
+            <footer class="cd-cart__footer">
+              <a href="#0" class="cd-cart__checkout">
+                <em>Checkout - $<span>0</span>
+                  <svg class="icon icon--sm" viewBox="0 0 24 24"><g fill="none" stroke="currentColor"><line stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="3" y1="12" x2="21" y2="12"/><polyline stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="15,6 21,12 15,18 "/></g>
+                  </svg>
+                </em>
+              </a>
+            </footer>
+          </div>
+        </div> <!-- .cd-cart__content -->
+      </div> <!-- cd-cart -->
 
 			<footer class="cd-cart__footer">
 				<a href="#0" class="cd-cart__checkout">
@@ -308,12 +371,12 @@
      </div>
 
      <div id="myModal" class="modal">
-      <span class="close cursor" onclick="closeModal()">XXX</span>
+      <span class="close cursor" onclick="closeModal()">X</span>
       <div class="modal-content">
     
         <div class="mySlides">
           <div class="numbertext">1 / 4</div>
-          <img src="./images/image-product-1.jpg" style="width:100%">
+          <img id ="lightbox-img" src="./images/image-product-1.jpg" style="width:100%">
         </div>
         </div>
         </div>
